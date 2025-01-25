@@ -7,7 +7,9 @@ const Contact: React.FC = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -24,17 +26,27 @@ const Contact: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+        Contact Us
+      </h2>
 
       <div className="bg-white p-8 rounded-lg shadow-md mb-8">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Get in Touch
+        </h3>
         <p className="text-lg text-gray-700 mb-6">
-          If you have any questions or would like to learn more about the IT Club, feel free to reach out to us. We’re happy to help!
+          If you have any questions or would like to learn more about the IT
+          Club, feel free to reach out to us. We’re happy to help!
         </p>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">Your Name</label>
+            <label
+              htmlFor="name"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
+              Your Name
+            </label>
             <input
               type="text"
               id="name"
@@ -47,7 +59,12 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">Your Email</label>
+            <label
+              htmlFor="email"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
+              Your Email
+            </label>
             <input
               type="email"
               id="email"
@@ -60,7 +77,12 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">Your Message</label>
+            <label
+              htmlFor="message"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
+              Your Message
+            </label>
             <textarea
               id="message"
               name="message"
@@ -82,13 +104,44 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="bg-white p-8 rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Contact Information</h3>
-        <p className="text-lg text-gray-700 mb-4">Email: <a href="mailto:contact@itclub.com" className="text-blue-600 hover:text-blue-800">contact@itclub.com</a></p>
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          Our Contact Information
+        </h3>
+        <p className="text-lg text-gray-700 mb-4">
+          Email:{" "}
+          <a
+            href="mailto:contact@itclub.com"
+            className="text-blue-600 hover:text-blue-800"
+          >
+            contact@itclub.com
+          </a>
+        </p>
         <p className="text-lg text-gray-700 mb-4">Follow us on social media:</p>
         <div className="flex space-x-4">
-          <a href="https://facebook.com/itclub" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://twitter.com/itclub" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://instagram.com/itclub" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a
+            href="https://facebook.com/itclub"
+            className="text-blue-600 hover:text-blue-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://twitter.com/itclub"
+            className="text-blue-600 hover:text-blue-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://instagram.com/itclub"
+            className="text-blue-600 hover:text-blue-800"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
         </div>
       </div>
     </div>
@@ -96,4 +149,3 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-

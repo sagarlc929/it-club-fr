@@ -10,15 +10,21 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">About IT Club</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              About IT Club
+            </h3>
             <p className="text-sm">
-              The IT Club is a community for tech enthusiasts to explore, learn, and grow together. Join us for events, blogs, and discussions about the latest in technology.
+              The IT Club is a community for tech enthusiasts to explore, learn,
+              and grow together. Join us for events, blogs, and discussions
+              about the latest in technology.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="hover:text-blue-400 transition">
