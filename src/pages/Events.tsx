@@ -1,33 +1,39 @@
-import React from "react";
-
-const events = [
-  {
-    id: 1,
-    title: "Tech Workshop 2025",
-    date: "February 15, 2025",
-    description: "Learn about the latest trends in AI and machine learning.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1661306437817-8ab34be91e0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 2,
-    title: "Hackathon 2025",
-    date: "March 10, 2025",
-    description: "Join our 24-hour coding marathon and win exciting prizes!",
-    image:
-      "https://plus.unsplash.com/premium_photo-1661306437817-8ab34be91e0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 3,
-    title: "Cybersecurity Seminar",
-    date: "April 5, 2025",
-    description: "Discuss the future of cybersecurity with industry experts.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1661306437817-8ab34be91e0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
+import React, { useEffect, useState } from "react";
 
 const Events: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [events, setEvents] = useState<any[]>([]); // Initialize an empty array for events
+  const [loading, setLoading] = useState<boolean>(true); // Track loading state
+  const [error, setError] = useState<string | null>(null); // Track error state
+
+  useEffect(() => {
+    // Fetch event data from API
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/events");
+        const data = await response.json();
+        console.log("data" + data);
+        if (data.success) {
+          setEvents(data.data); // Set the event data
+          console.log(data.data);
+        } else {
+          setError("Failed to load events");
+        }
+      } catch (err) {
+        console.error("Error occurred while fetching events:", err);
+        setError("An error occurred while fetching events");
+      } finally {
+        setLoading(false); // Set loading to false after the request
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  if (loading)
+    return <p className="text-center text-gray-600">Loading events...</p>;
+  if (error) return <p className="text-center text-red-600">{error}</p>;
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
@@ -36,7 +42,7 @@ const Events: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {events.map((event) => (
           <div
-            key={event.id}
+            key={event._id}
             className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105"
           >
             {/* Event Image */}

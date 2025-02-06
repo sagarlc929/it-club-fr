@@ -35,7 +35,7 @@ const Features: React.FC = () => {
         {features.map((feature) => (
           <div
             key={feature.id}
-            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="bg-white p-6   hover:shadow-blue-600/50 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             {/* Feature Icon */}
             <img

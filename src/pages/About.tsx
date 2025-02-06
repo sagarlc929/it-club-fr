@@ -1,4 +1,40 @@
 import React from "react";
+import MemberCard from "../components/about/MemberCard"; // Adjust the path if needed
+const members = [
+  {
+    name: "goku",
+    role: "president",
+    bio: "software engineer",
+    backgroundImage: "/member/bg.jpg",
+    frontImage: "member/front_bg_remove.png",
+    logoImage: "member/bg_remove_logo.png",
+  },
+  {
+    name: "goku",
+    role: "president",
+    bio: "software engineer",
+    backgroundImage: "/member/bg.jpg",
+    frontImage: "member/front_bg_remove.png",
+    logoImage: "member/bg_remove_logo.png",
+  },
+
+  {
+    name: "goku",
+    role: "president",
+    bio: "software engineer",
+    backgroundImage: "/member/bg.jpg",
+    frontImage: "member/front_bg_remove.png",
+    logoImage: "",
+  },
+  {
+    name: "goku",
+    role: "president",
+    bio: "software engineer",
+    backgroundImage: "/member/bg.jpg",
+    frontImage: "member/front_bg_remove.png",
+    logoImage: undefined,
+  },
+];
 
 const About: React.FC = () => {
   return (
@@ -25,23 +61,17 @@ const About: React.FC = () => {
           leaders, we aim to equip members with the skills needed to thrive in
           the ever-changing world of IT.
         </p>
+      </div>
 
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-          Our Vision
-        </h3>
-        <p className="text-lg text-gray-700 mb-6">
-          We envision a future where technology empowers individuals to create
-          meaningful change. By building a community of tech enthusiasts, we aim
-          to inspire innovation, collaboration, and leadership within the IT
-          space.
-        </p>
+      {/* Team Section */}
+      <h3 className="text-2xl font-semibold text-center text-gray-800 my-12">
+        Meet Our Team
+      </h3>
 
-        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Join Us</h3>
-        <p className="text-lg text-gray-700 mb-6">
-          Whether you're a coding expert or just starting your journey in IT,
-          our club provides opportunities for everyone to learn and grow. Join
-          us for our upcoming events and become a part of our tech community!
-        </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {members.map((member, index) => (
+          <MemberCard key={index} {...member} />
+        ))}
       </div>
     </div>
   );
